@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvNom"
+        android:layout_width="262dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/etNom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Votre nom"
+            android:inputType="text" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvSignup"
+        android:layout_width="166dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="52dp"
+        android:text="Inscrivez-vous"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cvNom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
+
+    <TextView
+        android:id="@+id/tvNom"
+        android:layout_width="66dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="48dp"
+        android:text="Nom:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cvNom"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPrenom"
+        android:layout_width="255dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvNom">
+
+        <EditText
+            android:id="@+id/etPrenom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Votre prènom"
+            android:inputType="text" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvPrenom"
+        android:layout_width="80dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:text="Prènom:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cvPrenom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNom" />
+
+    <TextView
+        android:id="@+id/tvCIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:text="CIN:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrenom" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCin"
+        android:layout_width="251dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvCIN"
+        app:layout_constraintTop_toBottomOf="@+id/cvPrenom">
+
+        <EditText
+            android:id="@+id/etCIN"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Votre Cin"
+            android:inputType="text" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Email:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cvEmail"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCIN" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEmail"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCin">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Votre Email"
+            android:inputType="textEmailAddress" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvMdp"
+        android:layout_width="85dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Mot de passe:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="218dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvEmail">
+
+        <EditText
+            android:id="@+id/etMdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Votre mot de passe"
+            android:inputType="textPassword"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
