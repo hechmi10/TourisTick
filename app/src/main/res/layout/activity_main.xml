@@ -22,33 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/backgroundColor"
-                android:minHeight="?attr/actionBarSize"
-                android:text="@string/app_name"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
             <Button
                 android:id="@+id/btnInscrit"
                 android:layout_width="127dp"
                 android:layout_height="59dp"
-                android:layout_marginTop="168dp"
                 android:text="Inscription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar3"
-                app:layout_constraintVertical_bias="0.002" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -61,6 +44,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnInscrit"
                 app:layout_constraintVertical_bias="0.01" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="405dp"
+                android:layout_height="109dp"
+                android:background="@color/backgroundColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvTitleApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/abril_fatface"
+                android:gravity="center"
+                android:text="TourisTick"
+                android:textColor="#CC4545"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

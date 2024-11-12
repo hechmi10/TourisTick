@@ -1,14 +1,15 @@
 package tn.esprit.touristick
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tn.esprit.touristick.databinding.ActivitySignupBinding
+import tn.esprit.touristick.databinding.ActivityLoginBinding
 
-class SignUpActivity :AppCompatActivity(){
-    private lateinit var binding: ActivitySignupBinding
+class LoginActivity :AppCompatActivity(){
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivitySignupBinding.inflate(layoutInflater)
+        binding=ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
