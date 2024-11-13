@@ -65,7 +65,7 @@
                 android:gravity="center"
                 android:text="TourisTick"
                 android:textColor="#CC4545"
-                android:textSize="24sp"
+                android:textSize="48sp"
                 app:layout_constraintBottom_toBottomOf="@+id/view2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/view2"

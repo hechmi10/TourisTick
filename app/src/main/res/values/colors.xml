@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#3949AB</color>
     <color name="titleColor">#CC4545</color>
+    <color name="backgroundColor2">#E1F5FE</color>
 </resources>
