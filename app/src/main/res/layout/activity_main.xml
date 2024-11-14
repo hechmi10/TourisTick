@@ -9,7 +9,7 @@
 
 
     <LinearLayout
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="735dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,19 +24,20 @@
 
             <Button
                 android:id="@+id/btnInscrit"
-                android:layout_width="127dp"
-                android:layout_height="59dp"
+                android:layout_width="321dp"
+                android:layout_height="61dp"
                 android:text="Inscription"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.406" />
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="146dp"
-                android:layout_height="64dp"
+                android:layout_width="308dp"
+                android:layout_height="68dp"
                 android:layout_marginTop="16dp"
                 android:text="Se connecter"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,7 @@
                 app:layout_constraintVertical_bias="0.01" />
 
             <View
-                android:id="@+id/view2"
+                android:id="@+id/bgTitleApp"
                 android:layout_width="405dp"
                 android:layout_height="109dp"
                 android:background="@color/backgroundColor"
@@ -66,10 +67,10 @@
                 android:text="TourisTick"
                 android:textColor="#CC4545"
                 android:textSize="48sp"
-                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintBottom_toBottomOf="@+id/bgTitleApp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/view2"
-                app:layout_constraintTop_toTopOf="@+id/view2" />
+                app:layout_constraintStart_toStartOf="@+id/bgTitleApp"
+                app:layout_constraintTop_toTopOf="@+id/bgTitleApp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
