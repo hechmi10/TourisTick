@@ -82,8 +82,8 @@
             android:layout_width="163dp"
             android:layout_height="154dp"
             android:layout_margin="14dp"
+            android:foreground="@drawable/profile"
             app:cardCornerRadius="14dp"
-            android:foregroundGravity="center_horizontal"
             app:layout_column="0"
             app:layout_row="2" />
 
