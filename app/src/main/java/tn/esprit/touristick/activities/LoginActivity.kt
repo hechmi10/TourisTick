@@ -1,4 +1,4 @@
-package tn.esprit.touristick
+package tn.esprit.touristick.activities
 
 
 import android.os.Bundle
@@ -12,7 +12,10 @@ class LoginActivity :AppCompatActivity(){
         binding=ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnSubmitLogin.setOnClickListener {
-
+            login()
         }
+    }
+    private fun login(){
+
     }
 }

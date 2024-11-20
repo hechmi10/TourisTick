@@ -1,9 +1,10 @@
-package tn.esprit.touristick
+package tn.esprit.touristick.activities
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tn.esprit.touristick.databinding.ActivitySignupBinding
+
 
 class SignUpActivity :AppCompatActivity(){
     private lateinit var binding: ActivitySignupBinding
@@ -12,15 +13,13 @@ class SignUpActivity :AppCompatActivity(){
         binding=ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnSubmitSignUp.setOnClickListener {
-
+            signUp()
         }
     }
-    private fun addUser(context:Context){
-        val sharedPreferences= context.getSharedPreferences(SHARED_KEY, MODE_PRIVATE)
-        val value=sharedPreferences.getBoolean(SHARED_KEY,false)
+    private fun signUp(){
+        val intent= Intent(this,ReservationManagementActivity::class.java)
+        startActivity(intent)
     }
 
-    companion object {
-        const val SHARED_KEY="mySharedKey"
-    }
+
 }
