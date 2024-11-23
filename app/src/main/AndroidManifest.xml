@@ -19,6 +19,14 @@
             android:name=".activities.LoginActivity"
             android:exported="true"/>
         <activity
+            android:name=".activities.ReservationManagementActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:exported="true"/>
+        <activity android:name=".activities.AddReservationActivity"
+            android:exported="true"/>
+        <activity
             android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>

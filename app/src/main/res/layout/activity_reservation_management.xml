@@ -29,63 +29,146 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
-        android:layout_width="409dp"
-        android:layout_height="593dp"
+        android:layout_width="413dp"
+        android:layout_height="710dp"
         android:layout_marginTop="2dp"
         android:background="#E1F5FE"
+        android:foregroundGravity="center"
         app:columnCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintVertical_bias="0.0"
         app:rowCount="3">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvAddReservation"
             android:layout_width="163dp"
             android:layout_height="158dp"
             android:layout_margin="14dp"
-            android:foreground="@drawable/add_reservation"
             app:cardCornerRadius="14dp"
+            app:cardElevation="30dp"
             app:layout_column="0"
-            app:layout_row="0" />
+            app:layout_row="0">
+
+            <TextView
+                android:id="@+id/tvAddReservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Ajouter une réservation" />
+
+            <ImageView
+                android:id="@+id/ivAddReservation"
+                android:layout_width="106dp"
+                android:layout_height="91dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/add_reservation" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvListReservation"
             android:layout_width="178dp"
             android:layout_height="155dp"
             android:layout_margin="14dp"
-            android:foreground="@drawable/list_reservations"
             app:cardCornerRadius="14dp"
+            app:cardElevation="30dp"
             app:layout_column="1"
-            app:layout_row="0" />
+            app:layout_row="0">
+
+            <TextView
+                android:id="@+id/tvListeReservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Liste des réservations" />
+
+            <ImageView
+                android:id="@+id/ivListeReservation"
+                android:layout_width="106dp"
+                android:layout_height="91dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/list_reservations" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvUpdateReservation"
             android:layout_width="161dp"
             android:layout_height="169dp"
             android:layout_margin="14dp"
-            android:foreground="@drawable/update_reservation"
             app:cardCornerRadius="14dp"
+            app:cardElevation="30dp"
             app:layout_column="0"
-            app:layout_row="1" />
+            app:layout_row="1">
+
+            <TextView
+                android:id="@+id/tvModifierReservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Modifier une réservation" />
+
+            <ImageView
+                android:id="@+id/ivModifierReservation"
+                android:layout_width="106dp"
+                android:layout_height="91dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/update_reservation" />
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvDeleteReservation"
             android:layout_width="178dp"
             android:layout_height="164dp"
             android:layout_margin="14dp"
-            android:foreground="@drawable/delete_reservation"
             app:cardCornerRadius="14dp"
+            app:cardElevation="30dp"
             app:layout_column="1"
-            app:layout_row="1" />
+            app:layout_row="1">
+
+            <TextView
+                android:id="@+id/tvSupprimerReservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Supprimer une réservation" />
+
+            <ImageView
+                android:id="@+id/ivSupprimerReservation"
+                android:layout_width="106dp"
+                android:layout_height="91dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/delete_reservation" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvProfile"
             android:layout_width="163dp"
             android:layout_height="154dp"
             android:layout_margin="14dp"
-            android:foreground="@drawable/profile"
             app:cardCornerRadius="14dp"
+            app:cardElevation="30dp"
             app:layout_column="0"
-            app:layout_row="2" />
+            app:layout_row="2">
+
+            <TextView
+                android:id="@+id/tvProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Profile" />
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="106dp"
+                android:layout_height="91dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/profile" />
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
