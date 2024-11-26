@@ -17,16 +17,23 @@ class ReservationManagementActivity:AppCompatActivity() {
             startActivity(intent)
         }
         binding.cvListReservation.setOnClickListener {
-
+            val intent=Intent(this,ListReservationsActivity::class.java)
+            startActivity(intent)
         }
         binding.cvUpdateReservation.setOnClickListener {
-
+            val intent=Intent(this,UpdateReservationActivity::class.java)
+            startActivity(intent)
         }
         binding.cvDeleteReservation.setOnClickListener {
-
+            val intent=Intent(this,DeleteReservationActivity::class.java)
+            startActivity(intent)
         }
         binding.cvProfile.setOnClickListener {
-            
+            val intent=Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnSignOut.setOnClickListener{
+            finish()
         }
     }
 }

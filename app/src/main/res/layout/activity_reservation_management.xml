@@ -16,17 +16,19 @@
 
     <TextView
         android:id="@+id/tvTitleManagement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="233dp"
+        android:layout_height="56dp"
         android:fontFamily="@font/abril_fatface"
         android:gravity="center"
         android:text="TourisTick"
         android:textColor="@color/titleColor"
-        android:textSize="48sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="413dp"
@@ -171,4 +173,15 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Se déconnecter"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
