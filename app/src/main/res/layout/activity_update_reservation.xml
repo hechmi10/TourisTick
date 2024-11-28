@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <TableLayout
-        android:layout_width="409dp"
-        android:layout_height="844dp"
+        android:layout_width="414dp"
+        android:layout_height="911dp"
         android:background="@color/backgroundColor2"
         android:gravity="center"
         android:stretchColumns="*"
@@ -15,7 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
 
 
         <TableRow
@@ -35,7 +34,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tvNomReservation"
@@ -47,7 +46,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/etNomReservation"
@@ -91,7 +90,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tvTypeReservation"
@@ -103,7 +102,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Spinner
                     android:id="@+id/spTypeReservation"
@@ -144,7 +143,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnUpdate"
