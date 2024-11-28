@@ -33,7 +33,8 @@ class ReservationManagementActivity:AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnSignOut.setOnClickListener{
-            finish()
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

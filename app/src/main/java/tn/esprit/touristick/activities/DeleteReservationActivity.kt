@@ -12,12 +12,9 @@ class DeleteReservationActivity :AppCompatActivity(){
         binding= ActivityDeleteReservationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnDelete.setOnClickListener {
-            deleteReservation(binding.etIdDelete.text.toString().toInt())
             val intent= Intent(this,ReservationManagementActivity::class.java)
             startActivity(intent)
         }
     }
-    private fun deleteReservation(idDelete:Int):Boolean{
-        return false
-    }
+
 }
