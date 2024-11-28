@@ -15,16 +15,16 @@ class Tourist() {
         this.mdp=mdp
     }
 
-    private fun getCin():Int{return cin}
-    private fun setCin(cin:Int){this.cin=cin}
-    private fun getNom():String{return nom}
-    private fun setNom(nom:String){this.nom=nom}
-    private fun getPrenom():String{return prenom}
-    private fun setPrenom(prenom:String){this.prenom=prenom}
-    private fun getEmail():String{return email}
-    private fun setEmail(email:String){this.email=email}
-    private fun getMdp():String{return mdp}
-    private fun setMdp(mdp:String){this.mdp=mdp}
+    fun getCin():Int{return cin}
+    fun setCin(cin:Int){this.cin=cin}
+    fun getNom():String{return nom}
+    fun setNom(nom:String){this.nom=nom}
+    fun getPrenom():String{return prenom}
+    fun setPrenom(prenom:String){this.prenom=prenom}
+    fun getEmail():String{return email}
+    fun setEmail(email:String){this.email=email}
+    fun getMdp():String{return mdp}
+    fun setMdp(mdp:String){this.mdp=mdp}
 
     override fun toString(): String {
         return "Cin:$cin\nNom:$nom\nPrenom:$prenom\nEmail:$email\nMot de passe:$mdp\n"

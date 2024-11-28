@@ -36,6 +36,34 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/tvCin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CIN:"
+                android:textSize="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etCin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Votre CIN"
+                    android:inputType="text" />
+
+            </androidx.cardview.widget.CardView>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
                 android:id="@+id/tvNom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,34 +112,6 @@
                     android:inputType="text" />
 
             </androidx.cardview.widget.CardView>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tvCin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CIN:"
-                android:textSize="20sp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/etCin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Votre CIN"
-                    android:inputType="text" />
-
-            </androidx.cardview.widget.CardView>
-
         </TableRow>
 
         <TableRow
