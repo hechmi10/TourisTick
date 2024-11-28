@@ -8,9 +8,10 @@
     <View
         android:id="@+id/view"
         android:layout_width="411dp"
-        android:layout_height="136dp"
+        android:layout_height="103dp"
         android:background="@color/backgroundColor"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +32,8 @@
         app:layout_constraintVertical_bias="0.525" />
 
     <androidx.gridlayout.widget.GridLayout
-        android:layout_width="413dp"
-        android:layout_height="710dp"
+        android:layout_width="412dp"
+        android:layout_height="740dp"
         android:layout_marginTop="2dp"
         android:background="#E1F5FE"
         android:foregroundGravity="center"
@@ -178,7 +179,7 @@
         android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="Se déconnecter"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.943"
