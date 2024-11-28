@@ -29,8 +29,9 @@ class LoginActivity :AppCompatActivity(){
     private fun login(){
         if(binding.etEmailLogin.text.toString().isBlank()||binding.etPasswordLogin.text.toString().isBlank()){
             Toast.makeText(this,"Remplissez le formulaire",Toast.LENGTH_SHORT).show()
+        }else {
+            val intent = Intent(this, ReservationManagementActivity::class.java)
+            startActivity(intent)
         }
-        val intent= Intent(this,ReservationManagementActivity::class.java)
-        startActivity(intent)
     }
 }
