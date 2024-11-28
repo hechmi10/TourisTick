@@ -1,5 +1,6 @@
 package tn.esprit.touristick.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tn.esprit.touristick.databinding.ActivityDeleteReservationBinding
@@ -12,6 +13,8 @@ class DeleteReservationActivity :AppCompatActivity(){
         setContentView(binding.root)
         binding.btnDelete.setOnClickListener {
             deleteReservation(binding.etIdDelete.text.toString().toInt())
+            val intent= Intent(this,ReservationManagementActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun deleteReservation(idDelete:Int):Boolean{

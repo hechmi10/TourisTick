@@ -10,5 +10,6 @@ class ListReservationsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityListReservationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

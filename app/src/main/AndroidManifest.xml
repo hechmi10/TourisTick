@@ -28,6 +28,12 @@
             android:exported="true"/>
         <activity android:name=".activities.DeleteReservationActivity"
             android:exported="true"/>
+        <activity android:name=".activities.UpdateReservationActivity"
+            android:exported="true"/>
+        <activity android:name=".activities.ListReservationsActivity"
+            android:exported="true"/>
+        <activity android:name=".activities.ProfileActivity"
+            android:exported="true"/>
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

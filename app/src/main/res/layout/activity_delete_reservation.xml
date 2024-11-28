@@ -8,7 +8,9 @@
     <TableLayout
         android:layout_width="409dp"
         android:layout_height="844dp"
+        android:background="@color/backgroundColor2"
         android:gravity="center"
+        android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +22,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvDeleteReservation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/abril_fatface"
+                android:gravity="center"
                 android:text="Annuler votre réservation"
                 android:textSize="24sp" />
         </TableRow>
@@ -34,19 +38,21 @@
 
             <TextView
                 android:id="@+id/tvIdDelete"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Id du réservation:" />
+                android:text="Id du réservation:"
+                android:textSize="20sp" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp">
 
                 <EditText
                     android:id="@+id/etIdDelete"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:ems="10"
                     android:hint="L'id du réservation"
                     android:inputType="text" />
@@ -61,7 +67,7 @@
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Supprimer" />
         </TableRow>
 
