@@ -30,31 +30,26 @@ class ListReservationsActivity: AppCompatActivity() {
             val tableRow = TableRow(this)
 
             // Create TextViews for each field in the reservation
-            val tvNom = TextView(this).apply {
-                text = r.getNom()
-                setPadding(8, 8, 8, 8)
-            }
+            binding.tvNomDonnee.text= r.getNom()
+            binding.tvNomDonnee.setPadding(8, 8, 8, 8)
 
-            val tvPlace = TextView(this).apply {
-                text = r.getPlace()
-                setPadding(8, 8, 8, 8)
-            }
+            binding.tvPlaceDonnee.text = r.getPlace()
+            binding.tvPlaceDonnee.setPadding(8, 8, 8, 8)
 
-            val tvType = TextView(this).apply {
-                text = r.getType().name
-                setPadding(8, 8, 8, 8)
-            }
 
-            val tvPrix = TextView(this).apply {
-                text = String.format(r.getPrix().toString())
-                setPadding(8, 8, 8, 8)
-            }
+            binding.tvTypeDonnee.text = r.getType().name
+            binding.tvTypeDonnee.setPadding(8, 8, 8, 8)
+
+
+            binding.tvPrixDonnee.text = String.format(r.getPrix().toString())
+            binding.tvPrixDonnee.setPadding(8, 8, 8, 8)
+
 
             // Add TextViews to the TableRow
-            tableRow.addView(tvNom)
-            tableRow.addView(tvPlace)
-            tableRow.addView(tvType)
-            tableRow.addView(tvPrix)
+            tableRow.addView(binding.tvNomDonnee)
+            tableRow.addView(binding.tvPlaceDonnee)
+            tableRow.addView(binding.tvTypeDonnee)
+            tableRow.addView(binding.tvPrixDonnee)
 
             // Add the TableRow to the TableLayout
             binding.tableLayout.addView(tableRow)

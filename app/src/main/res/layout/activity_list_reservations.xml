@@ -103,24 +103,28 @@
             android:background="#FFFFFF"> <!-- White background -->
 
             <TextView
+                android:id="@+id/tvNomDonnee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvPlaceDonnee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvTypeDonnee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvPrixDonnee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
