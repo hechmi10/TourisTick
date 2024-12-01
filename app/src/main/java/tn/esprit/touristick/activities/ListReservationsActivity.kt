@@ -1,6 +1,8 @@
 package tn.esprit.touristick.activities
 
 import android.os.Bundle
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import tn.esprit.touristick.adapters.ReservationController
 import tn.esprit.touristick.databinding.ActivityListReservationsBinding
@@ -13,12 +15,49 @@ class ListReservationsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityListReservationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        controller.fetchAllReservations {reservations: List<Reservation> ->
-            for(r in reservations){
-                controller.searchReservation(r.getNom(),{reservation->{
-
-                }})
+        controller=ReservationController.getInstance()
+        controller.fetchAllReservations { reservations ->
+            runOnUiThread {
+                populateTable(reservations)
             }
+        }
+    }
+
+    private fun populateTable(reservations: List<Reservation>) {
+        binding.tableLayout.removeViews(1,binding.tableLayout.childCount-1)
+        for (r in reservations){
+            // Create a new TableRow
+            val tableRow = TableRow(this)
+
+            // Create TextViews for each field in the reservation
+            val tvNom = TextView(this).apply {
+                text = r.getNom()
+                setPadding(8, 8, 8, 8)
+            }
+
+            val tvPlace = TextView(this).apply {
+                text = r.getPlace()
+                setPadding(8, 8, 8, 8)
+            }
+
+            val tvType = TextView(this).apply {
+                text = r.getType().name
+                setPadding(8, 8, 8, 8)
+            }
+
+            val tvPrix = TextView(this).apply {
+                text = String.format(r.getPrix().toString())
+                setPadding(8, 8, 8, 8)
+            }
+
+            // Add TextViews to the TableRow
+            tableRow.addView(tvNom)
+            tableRow.addView(tvPlace)
+            tableRow.addView(tvType)
+            tableRow.addView(tvPrix)
+
+            // Add the TableRow to the TableLayout
+            binding.tableLayout.addView(tableRow)
         }
     }
 }

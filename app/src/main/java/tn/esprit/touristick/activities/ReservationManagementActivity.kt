@@ -12,7 +12,10 @@ class ReservationManagementActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityReservationManagementBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val nom=intent.getStringExtra(NOM_TOURISTE)
+        val prenom=intent.getStringExtra(PRENOM_TOURISTE)
+        val cin=intent.getStringExtra(CIN)
+        val email=intent.getStringExtra(EMAIL)
         binding.cvAddReservation.setOnClickListener{
             val intent= Intent(this,AddReservationActivity::class.java)
             startActivity(intent)
@@ -30,7 +33,12 @@ class ReservationManagementActivity:AppCompatActivity() {
             startActivity(intent)
         }
         binding.cvProfile.setOnClickListener {
-            val intent=Intent(this,ProfileActivity::class.java)
+            val intent=Intent(this,ProfileActivity::class.java).apply{
+                putExtra(NOM_TOURISTE,nom)
+                putExtra(PRENOM_TOURISTE,prenom)
+                putExtra(CIN,cin)
+                putExtra(EMAIL,email)
+            }
             startActivity(intent)
         }
         binding.btnSignOut.setOnClickListener{

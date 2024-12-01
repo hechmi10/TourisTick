@@ -18,6 +18,7 @@ class ForgotPasswordActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding=ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        controller= TouristController.getInstance()
         val cin=intent.getStringExtra(CIN)
         val nom=intent.getStringExtra(NOM_TOURISTE)
         val prenom=intent.getStringExtra(PRENOM_TOURISTE)
@@ -27,7 +28,7 @@ class ForgotPasswordActivity :AppCompatActivity(){
             if(binding.etOldPassword.text.toString().isBlank()||binding.etNewPassword.text.toString().isBlank()){
                 Toast.makeText(this,"Remplissez le formulaire",Toast.LENGTH_SHORT).show()
             }else {
-                controller.updatePassword(Tourist(cin.toString().toInt(),nom.toString(),prenom.toString(),email.toString(),binding.etNewPassword.text.toString()),this)
+                controller.updatePassword(Tourist(cin.toString(),nom.toString(),prenom.toString(),email.toString(),binding.etNewPassword.text.toString()),this)
                 val intent = Intent(this, ReservationManagementActivity::class.java).apply{
                     putExtra(NOM_TOURISTE,nom)
                     putExtra(PRENOM_TOURISTE,prenom)

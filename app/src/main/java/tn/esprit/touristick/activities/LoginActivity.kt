@@ -18,6 +18,7 @@ class LoginActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding=ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        controller=TouristController.getInstance()
         binding.btnSubmitLogin.setOnClickListener {
             login()
         }
@@ -35,7 +36,7 @@ class LoginActivity :AppCompatActivity(){
         // Retrieve tourist details from the intent
         val nom = intent.getStringExtra(NOM_TOURISTE)
         val prenom = intent.getStringExtra(PRENOM_TOURISTE)
-        val cin = intent.getStringExtra(CIN)?.toIntOrNull()
+        val cin = intent.getStringExtra(CIN)
         val email = intent.getStringExtra(EMAIL)
 
         // Check if the email or password fields are blank
@@ -57,10 +58,10 @@ class LoginActivity :AppCompatActivity(){
                 if (tourist.getMdp() == binding.etPasswordLogin.text.toString()) {
                     // Navigate to ReservationManagementActivity
                     val intent = Intent(this, ReservationManagementActivity::class.java).apply {
-                        putExtra(NOM_TOURISTE, tourist.getNom())
-                        putExtra(PRENOM_TOURISTE, tourist.getPrenom())
-                        putExtra(CIN, tourist.getCin().toString())
-                        putExtra(EMAIL, tourist.getEmail())
+                        putExtra(NOM_TOURISTE, nom)
+                        putExtra(PRENOM_TOURISTE, prenom)
+                        putExtra(CIN, cin)
+                        putExtra(EMAIL, email)
                     }
                     startActivity(intent)
                 } else {

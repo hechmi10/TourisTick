@@ -13,12 +13,12 @@ class TouristController {
     }
 
     // Search for a tourist by CIN
-    fun searchTourist(cin: Int, callback: (Tourist?) -> Unit) {
+    fun searchTourist(cin: String, callback: (Tourist?) -> Unit) {
         firestoreManager.searchTourist(cin, callback)
     }
 
     // Delete a tourist
-    fun deleteTourist(cin: Int, context: Context) {
+    fun deleteTourist(cin: String, context: Context) {
         firestoreManager.deleteTourist(cin, context)
     }
 

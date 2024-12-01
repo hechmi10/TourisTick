@@ -34,7 +34,7 @@ class FirestoreManagerTourist {
             }
     }
 
-    fun searchTourist(cin: Int, callback: (Tourist?) -> Unit) {
+    fun searchTourist(cin: String, callback: (Tourist?) -> Unit) {
         db.collection("Tourists")
             .whereEqualTo("cin", cin)
             .get()
@@ -42,7 +42,7 @@ class FirestoreManagerTourist {
                 val document = querySnapshot.documents.firstOrNull()
                 if (document != null) {
                     val tourist = Tourist(
-                        document.getLong("cin")?.toInt() ?: 0,
+                        document.getString("cin") ?: "",
                         document.getString("nom") ?: "",
                         document.getString("prenom") ?: "",
                         document.getString("email") ?: "",
@@ -59,7 +59,7 @@ class FirestoreManagerTourist {
             }
     }
 
-    fun deleteTourist(cin: Int, context: Context) {
+    fun deleteTourist(cin: String, context: Context) {
         db.collection("Tourists")
             .whereEqualTo("cin", cin)
             .get()

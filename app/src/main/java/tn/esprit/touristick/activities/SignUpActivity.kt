@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseApp
 import tn.esprit.touristick.adapters.TouristController
 import tn.esprit.touristick.databinding.ActivitySignupBinding
 import tn.esprit.touristick.entities.Tourist
@@ -19,8 +20,10 @@ class SignUpActivity :AppCompatActivity(){
     private lateinit var controller: TouristController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         binding=ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        controller=TouristController.getInstance()
         binding.btnSubmitSignUp.setOnClickListener {
             signUp()
         }
@@ -29,7 +32,7 @@ class SignUpActivity :AppCompatActivity(){
         if(binding.etCin.text.toString().isBlank()||binding.etNom.text.toString().isBlank()||binding.etPrenom.text.toString().isBlank()||binding.etEmail.text.toString().isBlank()||binding.etMdp.text.toString().isBlank()){
             Toast.makeText(this,"Remplissez le formulaire",Toast.LENGTH_SHORT).show()
         }else {
-            controller.addTourist(Tourist(binding.etCin.text.toString().toInt(),binding.etNom.text.toString(),binding.etPrenom.text.toString(),binding.etEmail.text.toString(),binding.etMdp.text.toString()),this)
+            controller.addTourist(Tourist(binding.etCin.text.toString(),binding.etNom.text.toString(),binding.etPrenom.text.toString(),binding.etEmail.text.toString(),binding.etMdp.text.toString()),this)
             val intent = Intent(this, ReservationManagementActivity::class.java).apply{
                 putExtra(CIN,binding.etCin.text.toString().toInt())
                 putExtra(NOM_TOURISTE,binding.etNom.text.toString())

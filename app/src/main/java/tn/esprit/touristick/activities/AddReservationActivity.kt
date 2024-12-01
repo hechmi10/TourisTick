@@ -23,14 +23,14 @@ class AddReservationActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityAddReservationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-// Fetch choices from the enum
+        controller=ReservationController.getInstance()
+        // Fetch choices from the enum
         val types = TypeReservation.entries.map { it.name }
 
-// Create an ArrayAdapter using the default Spinner layout
+        // Create an ArrayAdapter using the default Spinner layout
         val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, types)
 
-// Specify the layout to use when the list of choices appears
+        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
 // Apply the adapter to the spinner

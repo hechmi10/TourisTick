@@ -16,6 +16,7 @@ class UpdateReservationActivity :AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityUpdateReservationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        controller=ReservationController.getInstance()
         val nom=intent.getStringExtra(NOM)
         val place=intent.getStringExtra(PLACE)
         val type=intent.getStringExtra(TYPE)

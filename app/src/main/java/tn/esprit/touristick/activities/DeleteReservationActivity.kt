@@ -15,6 +15,7 @@ class DeleteReservationActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding= ActivityDeleteReservationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        controller=ReservationController.getInstance()
         binding.btnDelete.setOnClickListener {
             if(binding.etNomDelete.text.toString().isBlank()){
                 Toast.makeText(this,"Remplissez le formulaire",Toast.LENGTH_SHORT).show()

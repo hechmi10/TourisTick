@@ -36,8 +36,6 @@ class ReservationController {
 
     companion object {
         private var instance: ReservationController? = null
-
-        // Singleton pattern for ReservationController
         fun getInstance(): ReservationController {
             if (instance == null) {
                 instance = ReservationController()
@@ -45,4 +43,5 @@ class ReservationController {
             return instance!!
         }
     }
+
 }

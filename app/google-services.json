@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983266370586",
+    "project_id": "touristick-ecf0d",
+    "storage_bucket": "touristick-ecf0d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983266370586:android:e07bd43f7cf1aff5161da3",
+        "android_client_info": {
+          "package_name": "tn.esprit.touristick"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzEerlfvnxTv0EocuX03wlx-x1wVNJWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
