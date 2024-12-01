@@ -12,6 +12,7 @@ class ReservationManagementActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityReservationManagementBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.cvAddReservation.setOnClickListener{
             val intent= Intent(this,AddReservationActivity::class.java)
             startActivity(intent)
