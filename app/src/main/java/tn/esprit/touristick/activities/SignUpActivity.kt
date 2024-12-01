@@ -33,8 +33,8 @@ class SignUpActivity :AppCompatActivity(){
             Toast.makeText(this,"Remplissez le formulaire",Toast.LENGTH_SHORT).show()
         }else {
             controller.addTourist(Tourist(binding.etCin.text.toString(),binding.etNom.text.toString(),binding.etPrenom.text.toString(),binding.etEmail.text.toString(),binding.etMdp.text.toString()),this)
-            val intent = Intent(this, ReservationManagementActivity::class.java).apply{
-                putExtra(CIN,binding.etCin.text.toString().toInt())
+            val intent = Intent(this, LoginActivity::class.java).apply{
+                putExtra(CIN,binding.etCin.text.toString())
                 putExtra(NOM_TOURISTE,binding.etNom.text.toString())
                 putExtra(PRENOM_TOURISTE,binding.etPrenom.text.toString())
                 putExtra(EMAIL,binding.etEmail.text.toString())

@@ -38,6 +38,7 @@ class LoginActivity :AppCompatActivity(){
         val prenom = intent.getStringExtra(PRENOM_TOURISTE)
         val cin = intent.getStringExtra(CIN)
         val email = intent.getStringExtra(EMAIL)
+        val mdp=intent.getStringExtra(MOT_DE_PASSE)
 
         // Check if the email or password fields are blank
         if (binding.etEmailLogin.text.toString().isBlank() || binding.etPasswordLogin.text.toString().isBlank()) {
@@ -46,8 +47,8 @@ class LoginActivity :AppCompatActivity(){
         }
 
         // Validate CIN
-        if (cin == null) {
-            Toast.makeText(this, "CIN invalide ou non fourni", Toast.LENGTH_SHORT).show()
+        if (cin ==null) {
+            Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show()
             return
         }
 

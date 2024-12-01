@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity() {
         controller = TouristController.getInstance()
 
         // Populate the initial data from intent extras
-        val cin = intent.getStringExtra(CIN)?.toIntOrNull()
+        val cin = intent.getStringExtra(CIN)
         val nom = intent.getStringExtra(NOM_TOURISTE)
         val prenom = intent.getStringExtra(PRENOM_TOURISTE)
         val email = intent.getStringExtra(EMAIL)
