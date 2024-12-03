@@ -41,6 +41,10 @@ class ReservationManagementActivity:AppCompatActivity() {
             }
             startActivity(intent)
         }
+        binding.cvChatbot.setOnClickListener {
+            val intent=Intent(this,ChatbotActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnSignOut.setOnClickListener{
             val intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
