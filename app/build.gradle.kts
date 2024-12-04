@@ -5,37 +5,42 @@ plugins {
 }
 
 android {
-    namespace = "tn.esprit.touristick"
-    compileSdk = 34
+    namespace="tn.esprit.touristick"
+    compileSdk=35
 
     defaultConfig {
-        applicationId = "tn.esprit.touristick"
-        minSdk = 25
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId="tn.esprit.touristick"
+        minSdk=25
+        targetSdk=34
+        versionCode=1
+        versionName="1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner="androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled=false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile("proguard-android-optimize.txt") ,
                 "proguard-rules.pro"
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility=JavaVersion.VERSION_1_8
+        targetCompatibility=JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget="1.8"
     }
-    viewBinding{
+    viewBinding {
         enable=true
+    }
+    packaging {
+        resources {
+            excludes+="META-INF/versions/9/OSGI-INF/MANIFEST.MF"
+        }
     }
 }
 
@@ -50,7 +55,10 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation(libs.identity.jvm)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
+

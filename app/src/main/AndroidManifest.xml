@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="tn.esprit.touristick">
 
     <application
         android:name=".TouristickApp"
@@ -15,26 +16,34 @@
         tools:targetApi="31">
         <activity
             android:name=".activities.SignUpActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.ReservationManagementActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.ForgotPasswordActivity"
-            android:exported="true"/>
-        <activity android:name=".activities.AddReservationActivity"
-            android:exported="true"/>
-        <activity android:name=".activities.DeleteReservationActivity"
-            android:exported="true"/>
-        <activity android:name=".activities.UpdateReservationActivity"
-            android:exported="true"/>
-        <activity android:name=".activities.ListReservationsActivity"
-            android:exported="true"/>
-        <activity android:name=".activities.ProfileActivity"
-            android:exported="true"/>
+            android:exported="true" />
+        <activity
+            android:name=".activities.AddReservationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.DeleteReservationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UpdateReservationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ListReservationsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ChatbotActivity"
+            android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

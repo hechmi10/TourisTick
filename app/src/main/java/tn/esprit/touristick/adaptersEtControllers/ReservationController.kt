@@ -1,4 +1,4 @@
-package tn.esprit.touristick.adapters
+package tn.esprit.touristick.adaptersEtControllers
 
 import android.content.Context
 import tn.esprit.touristick.database.FirestoreManagerReservation
