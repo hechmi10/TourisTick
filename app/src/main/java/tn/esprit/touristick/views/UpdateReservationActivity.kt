@@ -1,4 +1,4 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.R
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import tn.esprit.touristick.adaptersEtControllers.ReservationController
+import tn.esprit.touristick.controllers.ReservationController
 import tn.esprit.touristick.databinding.ActivityUpdateReservationBinding
-import tn.esprit.touristick.entities.Reservation
-import tn.esprit.touristick.entities.TypeReservation
+import tn.esprit.touristick.models.Reservation
+import tn.esprit.touristick.models.TypeReservation
 
 class UpdateReservationActivity : AppCompatActivity() {
     private lateinit var binding:ActivityUpdateReservationBinding

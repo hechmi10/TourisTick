@@ -1,8 +1,8 @@
-package tn.esprit.touristick.adaptersEtControllers
+package tn.esprit.touristick.controllers
 
 import android.content.Context
-import tn.esprit.touristick.database.FirestoreManagerTourist
-import tn.esprit.touristick.entities.Tourist
+import tn.esprit.touristick.models.database.FirestoreManagerTourist
+import tn.esprit.touristick.models.Tourist
 
 class TouristController {
     private val firestoreManager:FirestoreManagerTourist= FirestoreManagerTourist()

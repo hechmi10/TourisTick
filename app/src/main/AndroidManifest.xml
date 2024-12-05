@@ -15,37 +15,37 @@
         android:theme="@style/Theme.TourisTick"
         tools:targetApi="31">
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name=".views.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".views.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ReservationManagementActivity"
+            android:name=".views.ReservationManagementActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ForgotPasswordActivity"
+            android:name=".views.ForgotPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AddReservationActivity"
+            android:name=".views.AddReservationActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.DeleteReservationActivity"
+            android:name=".views.DeleteReservationActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.UpdateReservationActivity"
+            android:name=".views.UpdateReservationActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ListReservationsActivity"
+            android:name=".views.ListReservationsActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name=".views.ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ChatbotActivity"
+            android:name=".views.ChatbotActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

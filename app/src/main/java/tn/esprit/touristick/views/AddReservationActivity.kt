@@ -1,4 +1,4 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.R
 import android.content.Intent
@@ -7,9 +7,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tn.esprit.touristick.databinding.ActivityAddReservationBinding
-import tn.esprit.touristick.entities.TypeReservation
-import tn.esprit.touristick.adaptersEtControllers.ReservationController
-import tn.esprit.touristick.entities.Reservation
+import tn.esprit.touristick.models.TypeReservation
+import tn.esprit.touristick.controllers.ReservationController
+import tn.esprit.touristick.models.Reservation
 
 const val NOM="Nom"
 const val PLACE="Place"

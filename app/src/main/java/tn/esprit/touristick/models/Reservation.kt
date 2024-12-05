@@ -1,4 +1,4 @@
-package tn.esprit.touristick.entities
+package tn.esprit.touristick.models
 
 class Reservation() {
     private var nom=""

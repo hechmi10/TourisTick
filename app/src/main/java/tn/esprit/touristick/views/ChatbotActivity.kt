@@ -1,11 +1,10 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import tn.esprit.touristick.adaptersEtControllers.ChatbotAdapter
 import tn.esprit.touristick.databinding.ActivityChatbotBinding
-import tn.esprit.touristick.entities.ChatBotMessage
+import tn.esprit.touristick.models.ChatBotMessage
 
 
 class ChatbotActivity : AppCompatActivity() {

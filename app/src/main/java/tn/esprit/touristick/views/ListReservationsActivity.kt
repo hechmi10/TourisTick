@@ -1,12 +1,12 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.os.Bundle
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import tn.esprit.touristick.adaptersEtControllers.ReservationController
+import tn.esprit.touristick.controllers.ReservationController
 import tn.esprit.touristick.databinding.ActivityListReservationsBinding
-import tn.esprit.touristick.entities.Reservation
+import tn.esprit.touristick.models.Reservation
 
 class ListReservationsActivity : AppCompatActivity() {
     private lateinit var binding:ActivityListReservationsBinding

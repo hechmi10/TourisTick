@@ -1,10 +1,10 @@
-package tn.esprit.touristick.database
+package tn.esprit.touristick.models.database
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
-import tn.esprit.touristick.entities.Tourist
+import tn.esprit.touristick.models.Tourist
 
 class FirestoreManagerTourist {
     private val db:FirebaseFirestore=FirebaseFirestore.getInstance()

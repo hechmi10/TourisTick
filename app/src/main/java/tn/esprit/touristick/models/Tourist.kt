@@ -1,4 +1,4 @@
-package tn.esprit.touristick.entities
+package tn.esprit.touristick.models
 
 class Tourist() {
     //Déclaration et initialisation des données de l'utilisateur

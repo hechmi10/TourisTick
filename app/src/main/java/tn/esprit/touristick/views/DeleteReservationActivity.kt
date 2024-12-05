@@ -1,10 +1,10 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import tn.esprit.touristick.adaptersEtControllers.ReservationController
+import tn.esprit.touristick.controllers.ReservationController
 import tn.esprit.touristick.databinding.ActivityDeleteReservationBinding
 
 

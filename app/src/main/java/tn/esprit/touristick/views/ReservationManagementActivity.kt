@@ -1,4 +1,4 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.content.Intent
 import android.os.Bundle

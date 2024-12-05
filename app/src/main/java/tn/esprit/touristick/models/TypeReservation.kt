@@ -1,4 +1,4 @@
-package tn.esprit.touristick.entities
+package tn.esprit.touristick.models
 
 enum class TypeReservation {
     Hotel , Maison

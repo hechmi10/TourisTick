@@ -1,12 +1,12 @@
-package tn.esprit.touristick.activities
+package tn.esprit.touristick.views
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import tn.esprit.touristick.adaptersEtControllers.TouristController
+import tn.esprit.touristick.controllers.TouristController
 import tn.esprit.touristick.databinding.ActivityForgotPasswordBinding
-import tn.esprit.touristick.entities.Tourist
+import tn.esprit.touristick.models.Tourist
 
 const val NEWPASSWORD="New_Password"
 

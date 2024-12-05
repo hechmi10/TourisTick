@@ -1,8 +1,8 @@
-package tn.esprit.touristick.adaptersEtControllers
+package tn.esprit.touristick.controllers
 
 import android.content.Context
-import tn.esprit.touristick.database.FirestoreManagerReservation
-import tn.esprit.touristick.entities.Reservation
+import tn.esprit.touristick.models.database.FirestoreManagerReservation
+import tn.esprit.touristick.models.Reservation
 
 class ReservationController {
     private val firestoreManager:FirestoreManagerReservation= FirestoreManagerReservation()
