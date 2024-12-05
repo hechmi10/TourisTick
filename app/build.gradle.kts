@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation("com.google.firebase:firebase-auth")
     implementation(libs.identity.jvm)
+    implementation(libs.firebase.vertexai)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

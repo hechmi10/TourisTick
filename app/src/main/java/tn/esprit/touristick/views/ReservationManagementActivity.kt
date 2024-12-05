@@ -3,15 +3,18 @@ package tn.esprit.touristick.views
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import tn.esprit.touristick.databinding.ActivityReservationManagementBinding
 
 class ReservationManagementActivity : AppCompatActivity() {
     private lateinit var binding:ActivityReservationManagementBinding
+    private lateinit var firebaseAuth:FirebaseAuth
 
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityReservationManagementBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth=FirebaseAuth.getInstance()
         val nom=intent.getStringExtra(NOM_TOURISTE)
         val prenom=intent.getStringExtra(PRENOM_TOURISTE)
         val cin=intent.getStringExtra(CIN)
@@ -46,6 +49,7 @@ class ReservationManagementActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnSignOut.setOnClickListener {
+            firebaseAuth.signOut()
             val intent=Intent(this , MainActivity::class.java)
             startActivity(intent)
         }
