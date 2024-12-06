@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -14,8 +15,8 @@ android {
         targetSdk=34
         versionCode=1
         versionName="1.0"
-
         testInstrumentationRunner="androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
     }
 
     buildTypes {
@@ -42,6 +43,10 @@ android {
             excludes+="META-INF/versions/9/OSGI-INF/MANIFEST.MF"
         }
     }
+    buildFeatures{
+        buildConfig=true
+    }
+
 }
 
 dependencies {
@@ -56,8 +61,11 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation(libs.identity.jvm)
     implementation(libs.firebase.vertexai)
+    implementation(libs.generativeai)
+    implementation(libs.firebase.appcheck.interop)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -13,8 +13,8 @@ class TouristController {
     }
 
     // Search for a tourist by CIN
-    fun searchTourist(cin: String, callback: (Tourist?) -> Unit) {
-        firestoreManager.searchTourist(cin, callback)
+    fun searchTourist(email: String,mdp:String, callback: (Tourist?) -> Unit) {
+        firestoreManager.searchTourist(email,mdp, callback)
     }
 
     // Delete a tourist

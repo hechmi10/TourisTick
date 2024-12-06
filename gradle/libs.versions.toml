@@ -16,6 +16,8 @@ identityJvm = "202411.1"
 google-cloud-dialogflow = "4.60.0"
 materialVersion = "1.12.0"
 firebaseVertexai = "16.0.2"
+generativeai = "0.9.0"
+firebaseAppcheckInterop = "17.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +38,8 @@ identity-jvm = { group = "com.android.identity", name = "identity-jvm", version.
 #noinspection SimilarGradleDependency
 material-v150 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 firebase-vertexai = { group = "com.google.firebase", name = "firebase-vertexai", version.ref = "firebaseVertexai" }
+generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
+firebase-appcheck-interop = { group = "com.google.firebase", name = "firebase-appcheck-interop", version.ref = "firebaseAppcheckInterop" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

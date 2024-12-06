@@ -37,13 +37,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        var tourist=
-            intent.getStringExtra(CIN)?.let {
-                Tourist(
-                    it , intent.getStringExtra(NOM_TOURISTE)!! , intent.getStringExtra(
-                        PRENOM_TOURISTE)!! , intent.getStringExtra(EMAIL)!!
-                    ,intent.getStringExtra(MOT_DE_PASSE)!!)
-            }
+
         firebaseAuth=FirebaseAuth.getInstance()
         // Check if the email or password fields are blank
         if (binding.etEmailLogin.text.toString()
@@ -58,13 +52,18 @@ class LoginActivity : AppCompatActivity() {
                 binding.etPasswordLogin.text.toString()
             ).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val intent=Intent(this , ReservationManagementActivity::class.java).apply{
-                        putExtra(NOM_TOURISTE,tourist?.getNom())
-                        putExtra(PRENOM_TOURISTE,tourist?.getPrenom())
-                        putExtra(CIN,tourist?.getCin())
-                        putExtra(EMAIL,tourist?.getEmail())
+                    controller.searchTourist(binding.etEmailLogin.text.toString(),
+                        binding.etPasswordLogin.text.toString()){
+                        tourist ->
+                        val intent=Intent(this , ReservationManagementActivity::class.java).apply{
+                            putExtra(NOM_TOURISTE,tourist?.getNom())
+                            putExtra(PRENOM_TOURISTE,tourist?.getPrenom())
+                            putExtra(CIN,tourist?.getCin())
+                            putExtra(EMAIL,tourist?.getEmail())
+                        }
+                        startActivity(intent)
                     }
-                    startActivity(intent)
+
                 } else {
                     // Affichage d'un message d'erreur en cas d'échec d'authentification
                     Toast.makeText(this , task.exception.toString() , Toast.LENGTH_SHORT)

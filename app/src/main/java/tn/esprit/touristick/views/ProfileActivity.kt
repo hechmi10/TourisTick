@@ -23,19 +23,23 @@ class ProfileActivity : AppCompatActivity() {
         // Initialize controller
         controller=TouristController.getInstance()
         firebaseAuth=FirebaseAuth.getInstance()
-        tourist=Tourist()
+        val nom=intent.getStringExtra(NOM_TOURISTE)
+        val prenom=intent.getStringExtra(PRENOM_TOURISTE)
+        val cin=intent.getStringExtra(CIN)
+        val email=intent.getStringExtra(EMAIL)
+        val mdp=intent.getStringExtra(MOT_DE_PASSE)
 
-        binding.tvNomProfile.text=(binding.tvNomProfile.text.toString() + tourist.getNom()) ?: "N/A"
-        binding.tvPrenomProfile.text=(binding.tvPrenomProfile.text.toString() + tourist.getPrenom()) ?: "N/A"
-        binding.tvCinProfile.text=(binding.tvCinProfile.text.toString() + tourist.getCin()) ?: "N/A"
-        binding.tvEmailProfile.text=(binding.tvEmailProfile.text.toString() + tourist.getEmail()) ?: "N/A"
+
 
         // Fetch detailed tourist data from Firestore if CIN is available
-        if (tourist.getCin() != null) {
-            controller.searchTourist(tourist.getCin()) { tourist ->
+        if (email != null && mdp!=null) {
+            controller.searchTourist(email,mdp) { tourist ->
                 if (tourist != null) {
                     // Update UI with the retrieved tourist details
-                    updateProfileDetails(tourist)
+                    binding.tvNomProfile.text=(binding.tvNomProfile.text.toString() + nom) ?: "N/A"
+                    binding.tvPrenomProfile.text=(binding.tvPrenomProfile.text.toString() + prenom) ?: "N/A"
+                    binding.tvCinProfile.text=(binding.tvCinProfile.text.toString() + cin) ?: "N/A"
+                    binding.tvEmailProfile.text=(binding.tvEmailProfile.text.toString() + email) ?: "N/A"
                 } else {
                     Toast.makeText(
                         this ,
@@ -47,13 +51,5 @@ class ProfileActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this , "CIN invalide ou manquant" , Toast.LENGTH_SHORT).show()
         }
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun updateProfileDetails(tourist:Tourist) {
-        binding.tvNomProfile.text=binding.tvNomProfile.text.toString()+tourist.getNom()
-        binding.tvPrenomProfile.text=binding.tvPrenomProfile.text.toString()+tourist.getPrenom()
-        binding.tvCinProfile.text=binding.tvCinProfile.text.toString()+tourist.getCin()
-        binding.tvEmailProfile.text=binding.tvEmailProfile.text.toString()+tourist.getEmail()
     }
 }

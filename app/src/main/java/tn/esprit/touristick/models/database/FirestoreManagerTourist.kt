@@ -35,9 +35,10 @@ class FirestoreManagerTourist {
             }
     }
 
-    fun searchTourist(cin:String , callback:(Tourist?) -> Unit) {
+    fun searchTourist(email:String,mdp:String , callback:(Tourist?) -> Unit) {
         db.collection("Tourists")
-            .whereEqualTo("cin" , cin)
+            .whereEqualTo("email" , email)
+            .whereEqualTo("mdp",mdp)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 val document=querySnapshot.documents.firstOrNull()
