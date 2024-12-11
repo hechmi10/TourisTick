@@ -20,6 +20,7 @@ class ReservationManagementActivity : AppCompatActivity() {
         val prenom=intent.getStringExtra(PRENOM_TOURISTE)
         val cin=intent.getStringExtra(CIN)
         val email=intent.getStringExtra(EMAIL)
+        val mdp=intent.getStringExtra(MOT_DE_PASSE)
         binding.cvAddReservation.setOnClickListener {
             val intent=Intent(this , AddReservationActivity::class.java)
             startActivity(intent)
@@ -42,6 +43,7 @@ class ReservationManagementActivity : AppCompatActivity() {
                 putExtra(PRENOM_TOURISTE , prenom)
                 putExtra(CIN , cin)
                 putExtra(EMAIL , email)
+                putExtra(MOT_DE_PASSE,mdp)
             }
             startActivity(intent)
         }
