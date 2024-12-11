@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding=ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         controller=TouristController.getInstance()
+        firebaseAuth=FirebaseAuth.getInstance()
         binding.btnSubmitLogin.setOnClickListener {
             login()
         }
@@ -37,8 +38,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login() {
-
-        firebaseAuth=FirebaseAuth.getInstance()
         // Check if the email or password fields are blank
         if (binding.etEmailLogin.text.toString()
                 .isBlank() || binding.etPasswordLogin.text.toString().isBlank()
