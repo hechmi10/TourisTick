@@ -8,22 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import tn.esprit.touristick.controllers.TouristController
 import tn.esprit.touristick.databinding.ActivityLoginBinding
-import tn.esprit.touristick.models.Tourist
 
-const val PASSWORD="Password"
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityLoginBinding
-    private lateinit var controller:TouristController
-    private lateinit var firebaseAuth:FirebaseAuth
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var controller: TouristController
+    private lateinit var firebaseAuth: FirebaseAuth
 
-
-    override fun onCreate(savedInstanceState:Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        controller=TouristController.getInstance()
-        firebaseAuth=FirebaseAuth.getInstance()
+
+        controller = TouristController.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+
         binding.btnSubmitLogin.setOnClickListener {
             login()
         }
@@ -33,42 +32,54 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setPassword() {
-        val intent=Intent(this , ForgotPasswordActivity::class.java)
+        val email = binding.etEmailLogin.text.toString()
+        val password = binding.etPasswordLogin.text.toString()
+
+        if (email.isBlank() || password.isBlank()) {
+            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val intent = Intent(this, ForgotPasswordActivity::class.java).apply {
+            putExtra(EMAIL, email)
+            putExtra(MOT_DE_PASSE, password)
+        }
         startActivity(intent)
     }
 
     private fun login() {
-        // Check if the email or password fields are blank
-        if (binding.etEmailLogin.text.toString()
-                .isBlank() || binding.etPasswordLogin.text.toString().isBlank()
-        ) {
-            Toast.makeText(this , "Remplissez le formulaire" , Toast.LENGTH_SHORT).show()
-            return
-        }else {
-            // Search for the tourist in the authentication
-            firebaseAuth.signInWithEmailAndPassword(
-                binding.etEmailLogin.text.toString() ,
-                binding.etPasswordLogin.text.toString()
-            ).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    controller.searchTourist(binding.etEmailLogin.text.toString(),
-                        binding.etPasswordLogin.text.toString()){
-                        tourist ->
-                        val intent=Intent(this , ReservationManagementActivity::class.java).apply{
-                            putExtra(NOM_TOURISTE,tourist?.getNom())
-                            putExtra(PRENOM_TOURISTE,tourist?.getPrenom())
-                            putExtra(CIN,tourist?.getCin())
-                            putExtra(EMAIL,tourist?.getEmail())
-                        }
-                        startActivity(intent)
-                    }
+        val email = binding.etEmailLogin.text.toString()
+        val password = binding.etPasswordLogin.text.toString()
 
+        if (email.isBlank() || password.isBlank()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    controller.searchTourist(email, password) { tourist ->
+                        if (tourist != null) {
+                            val intent = Intent(this, ReservationManagementActivity::class.java).apply {
+                                putExtra(NOM_TOURISTE, tourist.getNom())
+                                putExtra(PRENOM_TOURISTE, tourist.getPrenom())
+                                putExtra(CIN, tourist.getCin())
+                                putExtra(EMAIL, tourist.getEmail())
+                            }
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Tourist not found", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
-                    // Affichage d'un message d'erreur en cas d'échec d'authentification
-                    Toast.makeText(this , task.exception.toString() , Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(this, task.exception?.message ?: "Login failed", Toast.LENGTH_SHORT).show()
                 }
             }
-        }
     }
 }

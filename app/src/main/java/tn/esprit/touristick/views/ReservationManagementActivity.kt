@@ -16,11 +16,11 @@ class ReservationManagementActivity : AppCompatActivity() {
         binding=ActivityReservationManagementBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth=FirebaseAuth.getInstance()
-        val nom=intent.getStringExtra(NOM_TOURISTE)
-        val prenom=intent.getStringExtra(PRENOM_TOURISTE)
-        val cin=intent.getStringExtra(CIN)
-        val email=intent.getStringExtra(EMAIL)
-        val mdp=intent.getStringExtra(MOT_DE_PASSE)
+        val nom=intent.getStringExtra(NOM_TOURISTE) ?: "N/A"
+        val prenom=intent.getStringExtra(PRENOM_TOURISTE) ?: "N/A"
+        val cin=intent.getStringExtra(CIN) ?: "N/A"
+        val email=intent.getStringExtra(EMAIL) ?: "N/A"
+        val mdp=intent.getStringExtra(MOT_DE_PASSE) ?: "N/A"
         binding.cvAddReservation.setOnClickListener {
             val intent=Intent(this , AddReservationActivity::class.java)
             startActivity(intent)

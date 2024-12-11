@@ -12,56 +12,50 @@ import tn.esprit.touristick.models.Tourist
 const val NEWPASSWORD="New_Password"
 
 class ForgotPasswordActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityForgotPasswordBinding
-    private lateinit var controller:TouristController
-    private lateinit var firebaseAuth:FirebaseAuth
+    private lateinit var binding: ActivityForgotPasswordBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState:Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityForgotPasswordBinding.inflate(layoutInflater)
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        controller=TouristController.getInstance()
-        firebaseAuth=FirebaseAuth.getInstance()
-        val cin=intent.getStringExtra(CIN)
-        val nom=intent.getStringExtra(NOM_TOURISTE)
-        val prenom=intent.getStringExtra(PRENOM_TOURISTE)
-        val email=intent.getStringExtra(EMAIL)
-        val mdp=intent.getStringExtra(MOT_DE_PASSE)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        val email = intent.getStringExtra(EMAIL)
+        val currentPassword = intent.getStringExtra(MOT_DE_PASSE)
+
+        if (email.isNullOrBlank() || currentPassword.isNullOrBlank()) {
+            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
         binding.btnSetPassword.setOnClickListener {
-            if (binding.etOldPassword.text.toString()
-                    .isBlank() || binding.etNewPassword.text.toString().isBlank()
-            ) {
-                Toast.makeText(this , "Remplissez le formulaire" , Toast.LENGTH_SHORT).show()
-            } else {
-                if(binding.etOldPassword.text.toString()==mdp) {
-                    controller.updatePassword(
-                        Tourist(
-                            cin.toString() ,
-                            nom.toString() ,
-                            prenom.toString() ,
-                            email.toString() ,
-                            binding.etNewPassword.text.toString()
-                        ) , this
-                    )
-                    firebaseAuth.confirmPasswordReset(
-                        binding.etOldPassword.text.toString() ,
-                        binding.etNewPassword.text.toString()
-                    ).addOnCompleteListener { task ->
+            val oldPassword = binding.etOldPassword.text.toString()
+            val newPassword = binding.etNewPassword.text.toString()
+
+            if (oldPassword.isBlank() || newPassword.isBlank()) {
+                Toast.makeText(this, "Please", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (oldPassword == currentPassword) {
+                // Validate password strength here if needed
+                firebaseAuth.currentUser?.updatePassword(newPassword)
+                    ?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            val intent=
-                                Intent(this , ReservationManagementActivity::class.java).apply {
-                                    putExtra(NOM_TOURISTE , nom)
-                                    putExtra(PRENOM_TOURISTE , prenom)
-                                    putExtra(CIN , cin)
-                                    putExtra(EMAIL , email)
-                                    putExtra(MOT_DE_PASSE , binding.etNewPassword.text.toString())
+                            val intent = Intent(this, ReservationManagementActivity::class.java)
+                                .apply {
+                                    putExtra(EMAIL, email)
+                                    putExtra(MOT_DE_PASSE, newPassword)
                                 }
                             startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Password reset failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                         }
                     }
-                }else{
-                    Toast.makeText(this,"Mot de passe incorrect",Toast.LENGTH_SHORT).show()
-                }
+            } else {
+                Toast.makeText(this, "Incorrect current password", Toast.LENGTH_SHORT).show()
             }
         }
     }
