@@ -16,12 +16,15 @@ android {
         versionCode=1
         versionName="1.0"
         testInstrumentationRunner="androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
     }
 
     buildTypes {
+        debug{
+            buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
+        }
         release {
-            isMinifyEnabled=false
+            buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
+            isMinifyEnabled=true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt") ,
                 "proguard-rules.pro"

@@ -49,7 +49,7 @@ class ChatbotActivity : AppCompatActivity() {
         // Initialize the generative model
         val model = GenerativeModel(
             "gemini-1.5-pro", // AI model
-            BuildConfig.geminiApiKey, // Retrieve API key from build config
+            "AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w", // Retrieve API key from build config
             generationConfig = generationConfig {
                 temperature = 1f
                 topK = 40
