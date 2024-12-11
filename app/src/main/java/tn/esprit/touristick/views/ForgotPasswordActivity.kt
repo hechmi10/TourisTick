@@ -26,34 +26,42 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val nom=intent.getStringExtra(NOM_TOURISTE)
         val prenom=intent.getStringExtra(PRENOM_TOURISTE)
         val email=intent.getStringExtra(EMAIL)
+        val mdp=intent.getStringExtra(MOT_DE_PASSE)
         binding.btnSetPassword.setOnClickListener {
             if (binding.etOldPassword.text.toString()
                     .isBlank() || binding.etNewPassword.text.toString().isBlank()
             ) {
                 Toast.makeText(this , "Remplissez le formulaire" , Toast.LENGTH_SHORT).show()
             } else {
-                controller.updatePassword(
-                    Tourist(
-                        cin.toString() ,
-                        nom.toString() ,
-                        prenom.toString() ,
-                        email.toString() ,
+                if(binding.etOldPassword.text.toString()==mdp) {
+                    controller.updatePassword(
+                        Tourist(
+                            cin.toString() ,
+                            nom.toString() ,
+                            prenom.toString() ,
+                            email.toString() ,
+                            binding.etNewPassword.text.toString()
+                        ) , this
+                    )
+                    firebaseAuth.confirmPasswordReset(
+                        binding.etOldPassword.text.toString() ,
                         binding.etNewPassword.text.toString()
-                    ) , this
-                )
-                firebaseAuth.confirmPasswordReset(binding.etOldPassword.text.toString(),
-                    binding.etNewPassword.text.toString()).addOnCompleteListener { task->
-                        if(task.isSuccessful){
-                            val intent=Intent(this , ReservationManagementActivity::class.java).apply {
-                                putExtra(NOM_TOURISTE , nom)
-                                putExtra(PRENOM_TOURISTE , prenom)
-                                putExtra(CIN , cin)
-                                putExtra(EMAIL , email)
-                                putExtra(MOT_DE_PASSE,binding.etNewPassword.text.toString())
-                            }
+                    ).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent=
+                                Intent(this , ReservationManagementActivity::class.java).apply {
+                                    putExtra(NOM_TOURISTE , nom)
+                                    putExtra(PRENOM_TOURISTE , prenom)
+                                    putExtra(CIN , cin)
+                                    putExtra(EMAIL , email)
+                                    putExtra(MOT_DE_PASSE , binding.etNewPassword.text.toString())
+                                }
                             startActivity(intent)
                         }
                     }
+                }else{
+                    Toast.makeText(this,"Mot de passe incorrect",Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
