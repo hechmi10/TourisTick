@@ -23,9 +23,6 @@ class ProfileActivity : AppCompatActivity() {
         // Initialize controller
         controller=TouristController.getInstance()
         firebaseAuth=FirebaseAuth.getInstance()
-        val nom=intent.getStringExtra(NOM_TOURISTE)
-        val prenom=intent.getStringExtra(PRENOM_TOURISTE)
-        val cin=intent.getStringExtra(CIN)
         val email=intent.getStringExtra(EMAIL)
         val mdp=intent.getStringExtra(MOT_DE_PASSE)
 
@@ -36,9 +33,6 @@ class ProfileActivity : AppCompatActivity() {
             controller.searchTourist(email,mdp) { tourist ->
                 if (tourist != null) {
                     // Update UI with the retrieved tourist details
-                    binding.tvNomProfile.text=(binding.tvNomProfile.text.toString() + nom) ?: "N/A"
-                    binding.tvPrenomProfile.text=(binding.tvPrenomProfile.text.toString() + prenom) ?: "N/A"
-                    binding.tvCinProfile.text=(binding.tvCinProfile.text.toString() + cin) ?: "N/A"
                     binding.tvEmailProfile.text=(binding.tvEmailProfile.text.toString() + email) ?: "N/A"
                 } else {
                     Toast.makeText(

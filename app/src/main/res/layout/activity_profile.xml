@@ -53,30 +53,6 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tvNomProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Nom:"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvPrenomProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Prenom:"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvCinProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="CIN:"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/tvEmailProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
