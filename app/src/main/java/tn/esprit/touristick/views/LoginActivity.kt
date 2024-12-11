@@ -56,7 +56,10 @@ class LoginActivity : AppCompatActivity() {
                         binding.etPasswordLogin.text.toString()){
                         tourist ->
                         val intent=Intent(this , ReservationManagementActivity::class.java).apply{
-                            putExtra(EMAIL,binding.etEmailLogin.text.toString())
+                            putExtra(NOM_TOURISTE,tourist?.getNom())
+                            putExtra(PRENOM_TOURISTE,tourist?.getPrenom())
+                            putExtra(CIN,tourist?.getCin())
+                            putExtra(EMAIL,tourist?.getEmail())
                         }
                         startActivity(intent)
                     }
