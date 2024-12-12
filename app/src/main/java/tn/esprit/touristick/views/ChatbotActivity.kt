@@ -64,12 +64,12 @@ class ChatbotActivity : AppCompatActivity() {
 
         // Create chat history with predefined conversation
         val chatHistory = listOf(
-            content("user") { text("hello") },
+            content("user") {
+                text("Bonjour")
+            },
             content("model") {
-                text(
-                    "Bonjour ! Je suis votre guide de réservation d’hôtels et de locations de vacances, spécialisé dans les voyages durables. Comment puis-je vous aider à planifier votre prochaine escapade écologique ?"
-                )
-            }
+                text("Bonjour ! Ravi de vous rencontrer. Je suis votre guide pour les réservations d'hôtels et de maisons de vacances, axé sur le tourisme durable. Comment puis-je vous aider à planifier votre voyage respectueux de l'environnement aujourd'hui ? Vous recherchez une destination particulière, un type d'hébergement spécifique ou des conseils pour un voyage plus écologique ?\n")
+            },
         )
 
         // Start chat with predefined history
