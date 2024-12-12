@@ -1,4 +1,4 @@
-package tn.esprit.touristick.views
+package tn.esprit.touristick.controllers
 
 import android.view.LayoutInflater
 import android.view.View
