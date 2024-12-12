@@ -23,8 +23,8 @@ class TouristController {
     }
 
     // Update a tourist
-    fun updatePassword(tourist: Tourist, context: Context) {
-        firestoreManager.updatePassword(tourist, context)
+    fun updatePassword(oldPassword:String,newPassword:String, context: Context) {
+        firestoreManager.updatePassword(oldPassword,newPassword, context)
     }
 
     companion object {

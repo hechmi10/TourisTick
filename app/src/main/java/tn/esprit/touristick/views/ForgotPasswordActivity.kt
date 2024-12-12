@@ -13,6 +13,7 @@ const val NEWPASSWORD="New_Password"
 
 class ForgotPasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityForgotPasswordBinding
+    private lateinit var controller:TouristController
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        controller=TouristController.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
         val email = intent.getStringExtra(EMAIL)
         val currentPassword = intent.getStringExtra(MOT_DE_PASSE)
@@ -44,6 +46,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 firebaseAuth.currentUser?.updatePassword(newPassword)
                     ?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            controller.updatePassword(oldPassword,newPassword,this)
                             val intent = Intent(this, ReservationManagementActivity::class.java)
                                 .apply {
                                     putExtra(EMAIL, email)

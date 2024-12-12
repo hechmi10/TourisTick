@@ -87,14 +87,14 @@ class FirestoreManagerTourist {
             }
     }
 
-    fun updatePassword(tourist:Tourist , context:Context) {
+    fun updatePassword(oldPassword:String,newPassword:String , context:Context) {
         db.collection("Tourists")
-            .whereEqualTo("cin" , tourist.getCin())
+            .whereEqualTo("mdp" , oldPassword)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 for (document in querySnapshot.documents) {
                     val updates=hashMapOf(
-                        "mdp" to tourist.getMdp()
+                        "mdp" to newPassword
                     )
                     document.reference.update(updates as Map<String , Any>)
                         .addOnSuccessListener {
