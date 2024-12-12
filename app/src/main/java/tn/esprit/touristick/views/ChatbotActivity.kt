@@ -51,7 +51,7 @@ class ChatbotActivity : AppCompatActivity() {
             "gemini-1.5-pro", // AI model
             "AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w", // Retrieve API key from build config
             generationConfig = generationConfig {
-                temperature = 1f
+                temperature = 2f
                 topK = 40
                 topP = 0.95f
                 maxOutputTokens = 8192
