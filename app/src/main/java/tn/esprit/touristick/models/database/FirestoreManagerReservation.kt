@@ -124,15 +124,15 @@ class FirestoreManagerReservation {
             .whereEqualTo("nom" , nom)
             .get()
             .addOnSuccessListener { querySnapshot ->
-                for (document in querySnapshot.documents) {
-                    document.reference.delete().addOnSuccessListener {
+                val document=querySnapshot.documents.firstOrNull()
+                    document?.reference?.delete()?.addOnSuccessListener {
                         Log.d(TAG , "Reservation deleted successfully!")
                         Toast.makeText(
                             context ,
                             "Reservation deleted successfully!" ,
                             Toast.LENGTH_SHORT
                         ).show()
-                    }.addOnFailureListener {
+                    }?.addOnFailureListener {
                         Log.e(TAG , "Failed to delete reservation: $it")
                         Toast.makeText(
                             context ,
@@ -141,7 +141,6 @@ class FirestoreManagerReservation {
                         ).show()
                     }
                 }
-            }
             .addOnFailureListener {
                 Log.e(TAG , "Error fetching reservation: $it")
                 Toast.makeText(context , "Failed to delete reservation!" , Toast.LENGTH_SHORT)
