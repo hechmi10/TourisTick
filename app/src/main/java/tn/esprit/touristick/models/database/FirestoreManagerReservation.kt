@@ -125,23 +125,22 @@ class FirestoreManagerReservation {
             .get()
             .addOnSuccessListener { querySnapshot ->
                 val document=querySnapshot.documents.first()
-                    document.reference.delete().addOnSuccessListener {
-                        Log.d(TAG , "Reservation deleted successfully!")
-                        Toast.makeText(
-                            context ,
-                            "Reservation deleted successfully!" ,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }.addOnFailureListener {
-                        Log.e(TAG , "Failed to delete reservation: $it")
-                        Toast.makeText(
-                            context ,
-                            "No reservation found with this name!" ,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                document.reference.delete().addOnSuccessListener {
+                    Log.d(TAG , "Reservation deleted successfully!")
+                    Toast.makeText(
+                        context ,
+                        "Reservation deleted successfully!" ,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }.addOnFailureListener {
+                    Log.e(TAG , "Failed to delete reservation: $it")
+                    Toast.makeText(
+                        context ,
+                        "No reservation found with this name!" ,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-            .addOnFailureListener {
+            }.addOnFailureListener {
                 Log.e(TAG , "Error fetching reservation: $it")
                 Toast.makeText(context , "No reservation found with this name!" , Toast.LENGTH_SHORT)
                     .show()
