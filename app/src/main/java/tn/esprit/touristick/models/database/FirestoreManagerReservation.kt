@@ -14,25 +14,58 @@ class FirestoreManagerReservation {
         private const val TAG="FirestoreManagerReservation"
     }
 
-    fun addReservation(reservation:Reservation , context:Context) {
-        val reservationData=hashMapOf(
-            "nom" to reservation.getNom() ,
-            "place" to reservation.getPlace() ,
-            "type" to reservation.getType().name ,
-            "prix" to reservation.getPrix()
-        )
+    fun addReservation(reservation: Reservation, context: Context) {
+        val reservationName = reservation.getNom()
 
+        // Check if a reservation with the same name already exists
         db.collection("Reservations")
-            .add(reservationData)
-            .addOnSuccessListener {
-                Log.d(TAG , "Reservation added with ID: ${it.id}")
-                Toast.makeText(context , "Reservation uploaded successfully!" , Toast.LENGTH_SHORT)
-                    .show()
+            .whereEqualTo("nom", reservationName)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.isEmpty) {
+                    // Reservation with this name does not exist, proceed with adding it
+                    val reservationData = hashMapOf(
+                        "nom" to reservation.getNom(),
+                        "place" to reservation.getPlace(),
+                        "type" to reservation.getType().name,
+                        "prix" to reservation.getPrix()
+                    )
+
+                    db.collection("Reservations")
+                        .add(reservationData)
+                        .addOnSuccessListener {
+                            Log.d(TAG, "Reservation added with ID: ${it.id}")
+                            Toast.makeText(
+                                context,
+                                "Reservation uploaded successfully!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e(TAG, "Error adding reservation: $e")
+                            Toast.makeText(
+                                context,
+                                "Failed to upload reservation!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                } else {
+                    // Reservation with this name already exists, show an error message
+                    Log.w(TAG, "Reservation with name '$reservationName' already exists")
+                    Toast.makeText(
+                        context,
+                        "Reservation with this name already exists!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             .addOnFailureListener { e ->
-                Log.e(TAG , "Error adding reservation: $e")
-                Toast.makeText(context , "Failed to upload reservation!" , Toast.LENGTH_SHORT)
-                    .show()
+                Log.e(TAG, "Error checking for existing reservation: $e")
+                Toast.makeText(
+                    context,
+                    "Failed to check for existing reservation!",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
