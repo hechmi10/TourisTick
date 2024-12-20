@@ -38,7 +38,7 @@ class UpdateReservationActivity : AppCompatActivity() {
                 Reservation(
                     binding.etNomReservationUpdate.text.toString() ,
                     binding.etPlaceReservationUpdate.text.toString() ,
-                    TypeReservation.valueOf(binding.spTypeReservationUpdate.selectedItem.toString()) ,
+                    TypeReservation.valueOf(binding.spTypeReservationUpdate.selectedItem.toString()),
                     binding.etPrixReservationUpdate.text.toString()
                 ) , this
             )
