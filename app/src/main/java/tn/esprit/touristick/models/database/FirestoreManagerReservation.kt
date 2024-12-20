@@ -136,7 +136,7 @@ class FirestoreManagerReservation {
                         Log.e(TAG , "Failed to delete reservation: $it")
                         Toast.makeText(
                             context ,
-                            "Failed to delete reservation!" ,
+                            "No reservation found with this name!" ,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
