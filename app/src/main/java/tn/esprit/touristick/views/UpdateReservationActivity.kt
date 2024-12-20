@@ -28,7 +28,7 @@ class UpdateReservationActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         // Apply the adapter to the spinner
-        binding.spTypeReservation.adapter=adapter
+        binding.spTypeReservationUpdate.adapter=adapter
         val nom=intent.getStringExtra(NOM)
         val place=intent.getStringExtra(PLACE)
         val type=intent.getStringExtra(TYPE)
@@ -36,24 +36,24 @@ class UpdateReservationActivity : AppCompatActivity() {
         binding.btnUpdate.setOnClickListener {
             controller.updateReservation(
                 Reservation(
-                    binding.etNomReservation.text.toString() ,
-                    binding.etPlaceReservation.text.toString() ,
-                    TypeReservation.valueOf(binding.spTypeReservation.selectedItem.toString()) ,
-                    binding.etPrixReservation.text.toString()
+                    binding.etNomReservationUpdate.text.toString() ,
+                    binding.etPlaceReservationUpdate.text.toString() ,
+                    TypeReservation.valueOf(binding.spTypeReservationUpdate.selectedItem.toString()) ,
+                    binding.etPrixReservationUpdate.text.toString()
                 ) , this
             )
-            if (binding.etNomReservation.text.toString()
-                    .isBlank() || binding.etPlaceReservation.text.toString()
-                    .isBlank() || binding.spTypeReservation.selectedItem.toString()
-                    .isBlank() || binding.etPrixReservation.text.toString().isBlank()
+            if (binding.etNomReservationUpdate.text.toString()
+                    .isBlank() || binding.etPlaceReservationUpdate.text.toString()
+                    .isBlank() || binding.spTypeReservationUpdate.selectedItem.toString()
+                    .isBlank() || binding.etPrixReservationUpdate.text.toString().isBlank()
             ) {
                 Toast.makeText(this , "Remplissez le formulaire" , Toast.LENGTH_SHORT).show()
             } else {
                 val intent=Intent(this , ReservationManagementActivity::class.java).apply {
-                    putExtra(NOM , binding.etNomReservation.text.toString())
-                    putExtra(PLACE , binding.etPlaceReservation.text.toString())
-                    putExtra(TYPE , binding.spTypeReservation.selectedItem.toString())
-                    putExtra(PRIX , binding.etPrixReservation.text.toString())
+                    putExtra(NOM , binding.etNomReservationUpdate.text.toString())
+                    putExtra(PLACE , binding.etPlaceReservationUpdate.text.toString())
+                    putExtra(TYPE , binding.spTypeReservationUpdate.selectedItem.toString())
+                    putExtra(PRIX , binding.etPrixReservationUpdate.text.toString())
                 }
                 startActivity(intent)
             }
