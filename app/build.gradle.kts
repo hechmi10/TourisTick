@@ -20,10 +20,10 @@ android {
 
     buildTypes {
         debug{
-            buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
+            buildConfigField("String","geminiApiKey","\"AIzaSyAAPnJWRl2bqJmm_tFAEhdakn-zwMn1U4I\"")
         }
         release {
-            buildConfigField("String","geminiApiKey","\"AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w\"")
+            buildConfigField("String","geminiApiKey","\"AIzaSyAAPnJWRl2bqJmm_tFAEhdakn-zwMn1U4I\"")
             isMinifyEnabled=true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt") ,

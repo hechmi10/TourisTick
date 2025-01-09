@@ -9,6 +9,7 @@ import com.google.ai.client.generativeai.type.asTextOrNull
 import com.google.ai.client.generativeai.type.content
 import com.google.ai.client.generativeai.type.generationConfig
 import kotlinx.coroutines.launch
+import tn.esprit.touristick.BuildConfig
 import tn.esprit.touristick.controllers.ChatbotAdapter
 import tn.esprit.touristick.databinding.ActivityChatbotBinding
 import tn.esprit.touristick.models.ChatBotMessage
@@ -48,31 +49,29 @@ class ChatbotActivity : AppCompatActivity() {
     private fun generateChat(userMessage: String, callback: (String) -> Unit) {
         // Initialize the generative model
         val model = GenerativeModel(
-            "gemini-1.5-pro", // AI model
-            "AIzaSyB-HNz_pWT2V9TAjHKwPtmfnqrY8JDEC4w", // Retrieve API key from build config
+            "gemini-1.5-pro",
+            // Retrieve API key as an environmental variable defined in a Build Configuration
+            // see https://github.com/google/secrets-gradle-plugin for further instructions
+            BuildConfig.geminiApiKey,
             generationConfig = generationConfig {
-                temperature = 2f
+                temperature = 1f
                 topK = 40
                 topP = 0.95f
                 maxOutputTokens = 8192
                 responseMimeType = "text/plain"
             },
-            systemInstruction = content {
-                text("Vous êtes un guide de réservation de chambres d'hôtel et de maisons de vacances, vous êtes dédié à vous assurer que votre application mobile touristique répond au thème du développement durable.")
-            }
+            systemInstruction = content { text("Vous êtes un guide de réservation de chambres d'hôtel et de maisons de vacances, vous êtes dédié à vous assurer que votre application mobile touristique répond au thème du développement durable.") },
         )
 
-        // Create chat history with predefined conversation
         val chatHistory = listOf(
             content("user") {
-                text("Bonjour")
+                text("hello")
             },
             content("model") {
-                text("Bonjour ! Ravi de vous rencontrer. Je suis votre guide pour les réservations d'hôtels et de maisons de vacances, axé sur le tourisme durable. Comment puis-je vous aider à planifier votre voyage respectueux de l'environnement aujourd'hui ? Vous recherchez une destination particulière, un type d'hébergement spécifique ou des conseils pour un voyage plus écologique ?\n")
+                text("Bonjour ! Comment puis-je vous aider à planifier votre voyage durable aujourd’hui ? Êtes-vous intéressé par des chambres d’hôtel ou des locations de vacances ? Vous avez une destination en tête ? Je peux vous aider à trouver des hébergements écologiques, vous informer sur les initiatives locales de développement durable et vous proposer des conseils pour réduire votre impact environnemental pendant votre voyage.  Parlez-moi de ce que vous recherchez !\n")
             },
         )
 
-        // Start chat with predefined history
         val chat = model.startChat(chatHistory)
 
         // Use coroutine to handle the suspend function
