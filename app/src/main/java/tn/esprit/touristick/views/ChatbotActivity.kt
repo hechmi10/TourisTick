@@ -48,7 +48,7 @@ class ChatbotActivity : AppCompatActivity() {
 
     private fun generateChat(userMessage: String, callback: (String) -> Unit) {
         val model = GenerativeModel(
-            "gemini-2.0-flash-exp",
+            "gemini-1.5-pro",
             // Retrieve API key as an environmental variable defined in a Build Configuration
             // see https://github.com/google/secrets-gradle-plugin for further instructions
             BuildConfig.geminiApiKey,
@@ -56,7 +56,7 @@ class ChatbotActivity : AppCompatActivity() {
                 temperature = 1f
                 topK = 40
                 topP = 0.95f
-                maxOutputTokens = 8192
+                maxOutputTokens = 5000
                 responseMimeType = "text/plain"
             },
             systemInstruction = content { text("Vous êtes un guide de réservation de chambres d'hôtel et de maisons de vacances, vous êtes dédié à vous assurer que votre application mobile touristique répond au thème du développement durable.") },
