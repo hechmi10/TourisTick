@@ -47,9 +47,8 @@ class ChatbotActivity : AppCompatActivity() {
     }
 
     private fun generateChat(userMessage: String, callback: (String) -> Unit) {
-        // Initialize the generative model
         val model = GenerativeModel(
-            "gemini-1.5-pro",
+            "gemini-2.0-flash-exp",
             // Retrieve API key as an environmental variable defined in a Build Configuration
             // see https://github.com/google/secrets-gradle-plugin for further instructions
             BuildConfig.geminiApiKey,
@@ -68,7 +67,7 @@ class ChatbotActivity : AppCompatActivity() {
                 text("hello")
             },
             content("model") {
-                text("Bonjour ! Comment puis-je vous aider à planifier votre voyage durable aujourd’hui ? Êtes-vous intéressé par des chambres d’hôtel ou des locations de vacances ? Vous avez une destination en tête ? Je peux vous aider à trouver des hébergements écologiques, vous informer sur les initiatives locales de développement durable et vous proposer des conseils pour réduire votre impact environnemental pendant votre voyage.  Parlez-moi de ce que vous recherchez !\n")
+                text("Bonjour ! 👋 Je suis ravi de vous accueillir. En tant que guide de réservation spécialisé dans les hôtels et les maisons de vacances, je suis là pour vous aider à trouver l'hébergement idéal tout en respectant le développement durable. \n\nDites-moi, qu'est-ce qui vous amène aujourd'hui ? Avez-vous déjà une destination en tête, ou recherchez-vous simplement des options d'hébergement éco-responsables ? Je suis à votre écoute pour vous guider dans vos choix et vous proposer des solutions adaptées à vos besoins.\n\nN'hésitez pas à me poser toutes vos questions, je suis là pour vous aider à faire de vos voyages une expérience plus durable et enrichissante. 😊\n")
             },
         )
 
